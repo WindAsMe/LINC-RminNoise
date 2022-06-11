@@ -1,4 +1,3 @@
-import random
 from cec2013lsgo.cec2013 import Benchmark
 import numpy as np
 
@@ -67,6 +66,14 @@ class Function:
             return f10
         elif self.func_num == 11:
             return f11
+        elif self.func_num == 12:
+            return f12
+        elif self.func_num == 13:
+            return f13
+        elif self.func_num == 14:
+            return f14
+        elif self.func_num == 15:
+            return f15
         else:
             return None
 
@@ -75,87 +82,77 @@ class Function:
         return [func_info['lower'], func_info['upper']]
 
 
-"""
-Part 1: Fully separable functions
-"""
-
-
-# f1 + f1
 def f1(solution):
     func = benchmark.get_function(1)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f2 + f2
 def f2(solution):
     func = benchmark.get_function(2)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f3 + f3
 def f3(solution):
     func = benchmark.get_function(3)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-"""
-Part 2: Partially separable functions I
-"""
-
-
-# f4 + f4
 def f4(solution):
     func = benchmark.get_function(4)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f5 + f5
 def f5(solution):
     func = benchmark.get_function(5)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-"""
-Part 3: Partially separable functions II
-"""
-
-
-# f8 + f8
 def f6(solution):
-    func = benchmark.get_function(8)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    func = benchmark.get_function(6)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f9 + f9
 def f7(solution):
-    func = benchmark.get_function(9)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    func = benchmark.get_function(7)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-"""
-Part 4: overlapping functions
-"""
-
-
-# f12 + f12
 def f8(solution):
-    func = benchmark.get_function(12)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    func = benchmark.get_function(8)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f13 + f13
 def f9(solution):
-    func = benchmark.get_function(13)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    func = benchmark.get_function(9)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f14 + f14
 def f10(solution):
-    func = benchmark.get_function(14)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    func = benchmark.get_function(10)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
-# f15 + f15
 def f11(solution):
+    func = benchmark.get_function(11)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+
+
+def f12(solution):
+    func = benchmark.get_function(12)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+
+
+def f13(solution):
+    func = benchmark.get_function(13)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+
+
+def f14(solution):
+    func = benchmark.get_function(14)
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+
+
+def f15(solution):
     func = benchmark.get_function(15)
-    return func(np.array(solution[0:1000], dtype='double')) + func(np.array(solution[1000:2000], dtype='double'))
+    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+

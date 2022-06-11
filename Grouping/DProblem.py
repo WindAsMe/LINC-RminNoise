@@ -5,7 +5,7 @@ from bench import benchmark
 
 
 class MyProblem(ea.Problem):
-    def __init__(self, Dim, gene_len, func, random_Pop, intercept):
+    def __init__(self, Dim, gene_len, func, random_Pop, intercept, base_fitness):
         name = 'MyProblem'
         M = 1
         maxormins = [1]
@@ -13,7 +13,7 @@ class MyProblem(ea.Problem):
         self.intercept = intercept
         self.cost = 0
         self.Gene_len = gene_len
-        self.base_fitness = benchmark.base_fitness(random_Pop, func, self.intercept)
+        self.base_fitness = base_fitness
         self.func = func
         self.Dim = Dim
         self.varTypes = [1] * Dim

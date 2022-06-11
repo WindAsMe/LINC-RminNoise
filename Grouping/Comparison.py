@@ -12,7 +12,7 @@ def CCDE(N):
     return groups
 
 
-def DECC_DG(f, N):
+def DECC_DG(N, f):
     cost = 2
     groups = CCDE(N)
     intercept = f(np.zeros(N))
