@@ -84,75 +84,92 @@ class Function:
 
 def f1(solution):
     func = benchmark.get_function(1)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f2(solution):
     func = benchmark.get_function(2)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f3(solution):
     func = benchmark.get_function(3)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f4(solution):
     func = benchmark.get_function(4)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f5(solution):
     func = benchmark.get_function(5)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f6(solution):
     func = benchmark.get_function(6)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f7(solution):
     func = benchmark.get_function(7)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f8(solution):
     func = benchmark.get_function(8)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f9(solution):
     func = benchmark.get_function(9)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f10(solution):
     func = benchmark.get_function(10)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f11(solution):
     func = benchmark.get_function(11)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f12(solution):
     func = benchmark.get_function(12)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f13(solution):
     func = benchmark.get_function(13)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f14(solution):
     func = benchmark.get_function(14)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
 
 def f15(solution):
     func = benchmark.get_function(15)
-    return func(np.array(solution[0:1000], dtype='double')) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    return func(solution) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
