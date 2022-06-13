@@ -32,7 +32,7 @@ class MyProblem(ea.Problem):
 
             groups_fitness, self.cost = benchmark.groups_fitness(Empty_groups, self.random_Pop, self.func, self.cost,
                                                                  self.intercept)
-            Objs.append([benchmark.object_function(self.base_fitness, groups_fitness)])
+            Objs.append([benchmark.object_function(self.base_fitness, groups_fitness, len(Empty_groups))])
         pop.ObjV = np.array(Objs, dtype='double')
 
 

@@ -1,5 +1,4 @@
 import numpy as np
-from cec2013lsgo.cec2013 import Benchmark
 import random
 import geatpy as ea
 from DE import templet
@@ -32,15 +31,15 @@ def DECC_DG(N, f):
     return groups, cost
 
 
-def DG_Differential(Dim, e1, e2, a, function, intercept):
+def DG_Differential(Dim, e1, e2, a, func, intercept):
     index1 = np.zeros(Dim)
     index2 = np.zeros(Dim)
     index1[e2] = 1
     index2[e1] = 1
     index2[e2] = 1
 
-    b = function(index1) - intercept
-    c = function(index2) - intercept
+    b = func * np.random.normal(loc=0, scale=0.01, size=None) - intercept
+    c = func * np.random.normal(loc=0, scale=0.01, size=None) - intercept
 
     return np.abs(c - (a + b)) < 0.001
 
@@ -120,7 +119,7 @@ def OptTool(Dim, NIND, f, scale_range):
 def CCVIl(Dim, func):
     cost = 2
     groups = CCDE(Dim)
-    f0 = func(np.zeros(Dim))
+    f0 = func(np.zeros(Dim)) * np.random.normal(loc=0, scale=0.01, size=None)
 
     for i in range(len(groups) - 1):
         if i < len(groups) - 1:
@@ -138,14 +137,14 @@ def CCVIl(Dim, func):
     return groups, cost
 
 
-def Monotonicity_check(Dim, e1, e2, fi, function, f0):
+def Monotonicity_check(Dim, e1, e2, fi, func, f0):
     index1 = np.zeros(Dim)
     index2 = np.zeros(Dim)
     index1[e2] = 1
     index2[e1] = 1
     index2[e2] = 1
 
-    fj = function(index1)
-    fij = function(index2)
+    fj = func(index1) * np.random.normal(loc=0, scale=0.01, size=None)
+    fij = func(index2) * np.random.normal(loc=0, scale=0.01, size=None)
 
     return (fij > fj > f0 and fij > fi > f0) or (fij < fj < f0 and fij < fi < f0)
