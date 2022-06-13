@@ -32,7 +32,7 @@ if __name__ == '__main__':
     '''
     NIND = 30
     FEs = 3000000
-    trail = 25
+    trail = 1
     '''
     Benchmark initialization
     '''
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         info = bench.get_info(func_num)
         scale_range = [info["lower"], info["upper"]]
 
-        intercept = func(np.zeros(Dim)) * np.random.normal(loc=0, scale=0.01, size=None)
+        intercept = func(np.zeros(Dim)) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
         # CCVIL_cost_path = path.dirname(this_path) + "/Data/cost/CCVIL/f" + str(func_num)
         # CCVIL_obj_path = path.dirname(this_path) + "/Data/obj/CCVIL/f" + str(func_num)
@@ -62,7 +62,8 @@ if __name__ == '__main__':
             # CCVIL_groups, CCVIL_cost = Comparison.CCVIl(Dim, func)
             # D_groups = Comparison.DECC_D(Dim, func, scale_range, groups_num=20, max_number=50)
             # DG_groups, DG_cost = Comparison.DECC_DG(Dim, func)
-            G_groups = Comparison.DECC_G(Dim, groups_num=20, max_number=50)
+            # G_groups = Comparison.DECC_G(Dim, groups_num=20, max_number=50)
+            G_groups = Comparison.CCDE(Dim)
             # MA_groups, MA_cost = Proposal.MALINC_Rmin(Dim, Gene_len, func, 5, scale_range, 0, intercept)
 
             # CCVIL_Max_iter = int((FEs - CCVIL_cost) / NIND / Dim) - 2

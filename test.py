@@ -1,5 +1,5 @@
 import numpy as np
-from bench import benchmark
+from cec2013lsgo.cec2013 import Benchmark
 import random
 
 
@@ -42,8 +42,12 @@ def Difference(Dim, group, func):
 
 
 Dim = 1000
-bench = benchmark.Function(1)
-func = bench.get_func()
+func_num = 1
+bench = Benchmark()
+func = bench.get_function(func_num)
+info = bench.get_info(func_num)
+scale_range = [info["lower"], info["upper"]]
+
 intercept = func(np.zeros(Dim))
 groups_CC = CCDE(Dim)
 groups_G = DECC_G(Dim, 20, 50)

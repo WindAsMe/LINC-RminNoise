@@ -38,8 +38,8 @@ def DG_Differential(Dim, e1, e2, a, func, intercept):
     index2[e1] = 1
     index2[e2] = 1
 
-    b = func(index1) * np.random.normal(loc=0, scale=0.01, size=None) - intercept
-    c = func(index2) * np.random.normal(loc=0, scale=0.01, size=None) - intercept
+    b = func(index1) * (1 + np.random.normal(loc=0, scale=0.01, size=None)) - intercept
+    c = func(index2) * (1 + np.random.normal(loc=0, scale=0.01, size=None)) - intercept
 
     return np.abs(c - (a + b)) < 0.001
 
@@ -87,7 +87,7 @@ class MyProblem(ea.Problem):
     def aimFunc(self, pop):  # 目标函数，pop为传入的种群对象
         result = []
         for p in pop.Phen:
-            result.append([self.benchmark(p)])
+            result.append([self.benchmark(p) * (1 + np.random.normal(loc=0, scale=0.01, size=None))])
         pop.ObjV = np.array(result)
 
 
@@ -119,14 +119,14 @@ def OptTool(Dim, NIND, f, scale_range):
 def CCVIl(Dim, func):
     cost = 2
     groups = CCDE(Dim)
-    f0 = func(np.zeros(Dim)) * np.random.normal(loc=0, scale=0.01, size=None)
+    f0 = func(np.zeros(Dim)) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
     for i in range(len(groups) - 1):
         if i < len(groups) - 1:
             cost += 2
             index1 = np.zeros(Dim)
             index1[groups[i][0]] = 1
-            fi = func(index1)
+            fi = func(index1) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
             for j in range(i + 1, len(groups)):
                 cost += 2
@@ -144,7 +144,7 @@ def Monotonicity_check(Dim, e1, e2, fi, func, f0):
     index2[e1] = 1
     index2[e2] = 1
 
-    fj = func(index1) * np.random.normal(loc=0, scale=0.01, size=None)
-    fij = func(index2) * np.random.normal(loc=0, scale=0.01, size=None)
+    fj = func(index1) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
+    fij = func(index2) * (1 + np.random.normal(loc=0, scale=0.01, size=None))
 
     return (fij > fj > f0 and fij > fi > f0) or (fij < fj < f0 and fij < fi < f0)

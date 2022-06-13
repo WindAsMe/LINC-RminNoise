@@ -18,7 +18,7 @@ def MALINC_Rmin(Dim, Gene_len, func, pop_size, scale_range, cost, intercept):
     cost += len(random_Pop)
     groups_fitness, cost = benchmark.groups_fitness(initial_groups, random_Pop, func, cost, intercept)
     current_best_obj = benchmark.object_function(base_fitness, groups_fitness, len(initial_groups))
-
+    print(current_best_obj)
     """
     Apply GA
     """
