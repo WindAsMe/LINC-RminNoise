@@ -24,7 +24,7 @@ def CC(Dim, NIND, MAX_iteration, func, scale_range, groups):
     obj_traces = []
     for var in var_traces:
         obj_traces.append(func(var))
-    return var_traces, obj_traces
+    return obj_traces
 
 
 def CC_Opt(benchmark, scale_range, group, based_population, population):

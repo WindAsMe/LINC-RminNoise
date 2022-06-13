@@ -38,8 +38,8 @@ def DG_Differential(Dim, e1, e2, a, func, intercept):
     index2[e1] = 1
     index2[e2] = 1
 
-    b = func * np.random.normal(loc=0, scale=0.01, size=None) - intercept
-    c = func * np.random.normal(loc=0, scale=0.01, size=None) - intercept
+    b = func(index1) * np.random.normal(loc=0, scale=0.01, size=None) - intercept
+    c = func(index2) * np.random.normal(loc=0, scale=0.01, size=None) - intercept
 
     return np.abs(c - (a + b)) < 0.001
 
