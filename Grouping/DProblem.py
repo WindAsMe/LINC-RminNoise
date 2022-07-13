@@ -2,6 +2,7 @@ import geatpy as ea
 from util import help_Proposal
 import numpy as np
 from bench import benchmark
+from Grouping import Comparison
 
 
 class MyProblem(ea.Problem):
@@ -34,6 +35,7 @@ class MyProblem(ea.Problem):
                                                                  self.intercept)
             Objs.append([benchmark.object_function(self.base_fitness, groups_fitness, len(Empty_groups))])
         pop.ObjV = np.array(Objs, dtype='double')
+
 
 
 
