@@ -29,7 +29,7 @@ def groups_fitness(groups, Population, func, cost, intercept):
 
 # outer interface
 # opt_fitness is calculated by groups_fitness
-def object_function(base_fitness, opt_fitness, group_size, epsilon=0.001):
+def object_function(base_fitness, opt_fitness, group_size, epsilon=0.01):
     error = 0
     for i in range(len(base_fitness)):
         error += (epsilon * abs(1 - opt_fitness[i] / base_fitness[i]) + (1 - epsilon) / group_size)

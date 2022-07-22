@@ -32,12 +32,12 @@ if __name__ == '__main__':
     '''
     NIND = 30
     FEs = 3000000
-    trail = 3
+    trail = 5
     '''
     Benchmark initialization
     '''
 
-    for func_num in range(1, 15):
+    for func_num in range(1, 16):
 
         bench = Benchmark()
         func = bench.get_function(func_num)
@@ -49,20 +49,19 @@ if __name__ == '__main__':
         # CCVIL_obj_path = path.dirname(this_path) + "/Data/obj/CCVIL/f" + str(func_num)
         # D_obj_path = path.dirname(this_path) + "/Data/obj/D/f" + str(func_num)
         # DG_obj_path = path.dirname(this_path) + "/Data/obj/DG/f" + str(func_num)
-        G_obj_path = path.dirname(this_path) + "/Data/obj/G/f" + str(func_num)
-        # GA_obj_path = path.dirname(this_path) + "/Data/obj/proposal/f" + str(func_num)
+        # G_obj_path = path.dirname(this_path) + "/Data/obj/G/f" + str(func_num)
+        GA_obj_path = path.dirname(this_path) + "/Data/obj/p/f" + str(func_num)
 
         for i in range(trail):
             # CCVIL_groups, CCVIL_cost = Comparison.CCVIl(Dim, func)
             # D_groups = Comparison.DECC_D(Dim, func, scale_range, groups_num=20, max_number=50)
             # DG_groups, DG_cost = Comparison.DECC_DG(Dim, func)
-            G_groups = Comparison.DECC_G(Dim, groups_num=20, max_number=50)
-            # GA_groups, GA_cost = Proposal.GALINC_Rmin(Dim, Gene_len, func, 5, scale_range, 0, intercept)
+            # G_groups = Comparison.DECC_G(Dim, groups_num=20, max_number=50)
+            GA_groups, GA_cost = Proposal.GALINC_Rmin(Dim, Gene_len, func, 5, scale_range, 0, intercept)
 
             # CCVIL_Max_iter = int((FEs - CCVIL_cost) / NIND / Dim) - 10
             # CCVIL_obj_trace = DE.CC(Dim, NIND, CCVIL_Max_iter, func, scale_range, CCVIL_groups)
             # write_obj(CCVIL_obj_trace, CCVIL_obj_path)
-            # write_obj(CCVIL_cost, CCVIL_cost_path)
 
             # D_Max_iter = int((FEs - 30000) / NIND / Dim) - 10
             # D_obj_trace = DE.CC(Dim, NIND, D_Max_iter, func, scale_range, D_groups)
@@ -71,14 +70,16 @@ if __name__ == '__main__':
             # DG_Max_iter = int((FEs - DG_cost) / NIND / Dim) - 10
             # DG_obj_trace = DE.CC(Dim, NIND, DG_Max_iter, func, scale_range, DG_groups)
             # write_obj(DG_obj_trace, DG_obj_path)
-            # write_obj(DG_cost, DG_cost_path)
             #
-            G_Max_iter = int((FEs) / NIND / Dim) - 10
-            G_obj_trace = DE.CC(Dim, NIND, G_Max_iter, func, scale_range, G_groups)
-            write_obj(G_obj_trace, G_obj_path)
+            # G_Max_iter = int((FEs) / NIND / Dim) - 10
+            # G_obj_trace = DE.CC(Dim, NIND, G_Max_iter, func, scale_range, G_groups)
+            # write_obj(G_obj_trace, G_obj_path)
             #
-            # GA_Max_iter = int((FEs - GA_cost) / NIND / Dim) - 10
-            # GA_obj_trace = DE.CC(Dim, NIND, GA_Max_iter, func, scale_range, GA_groups)
-            # write_obj(GA_obj_trace, GA_obj_path)
-            # write_obj(GA_cost, GA_cost_path)
+            GA_Max_iter = int((FEs - GA_cost) / NIND / Dim) - 2
+            GA_obj_trace = DE.CC(Dim, NIND, GA_Max_iter, func, scale_range, GA_groups)
+            write_obj(GA_obj_trace, GA_obj_path)
+
+
+
+
 
