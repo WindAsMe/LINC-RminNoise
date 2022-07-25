@@ -16,9 +16,9 @@ def CC(Dim, NIND, MAX_iteration, func, scale_range, groups):
             solution = CC_Opt(func, scale_range, groups[i], based_population, initial_Population[i])
 
             # Dynamic Average
-            # solution['lastPop'].ObjV = DynamicAverage(groups[i], based_population, solution['lastPop'].Phen,
-            #                                             solution['lastPop'].ObjV, func, NIND * len(groups[i]) / 10)
-            # solution['lastPop'].FitnV = ea.scaling(solution['lastPop'].ObjV)
+            solution['lastPop'].ObjV = DynamicAverage(groups[i], based_population, solution['lastPop'].Phen,
+                                                        solution['lastPop'].ObjV, func, NIND * len(groups[i]) / 10)
+            solution['lastPop'].FitnV = ea.scaling(solution['lastPop'].ObjV)
             initial_Population[i] = solution['lastPop']
             best_index = np.argmin(solution['lastPop'].ObjV)
             best_indi = solution['lastPop'].Phen[best_index]

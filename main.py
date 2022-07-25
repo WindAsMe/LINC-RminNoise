@@ -32,12 +32,12 @@ if __name__ == '__main__':
     '''
     NIND = 30
     FEs = 3000000
-    trail = 5
+    trail = 15
     '''
     Benchmark initialization
     '''
 
-    for func_num in range(1, 16):
+    for func_num in range(4, 16):
 
         bench = Benchmark()
         func = bench.get_function(func_num)
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         # D_obj_path = path.dirname(this_path) + "/Data/obj/D/f" + str(func_num)
         # DG_obj_path = path.dirname(this_path) + "/Data/obj/DG/f" + str(func_num)
         # G_obj_path = path.dirname(this_path) + "/Data/obj/G/f" + str(func_num)
-        GA_obj_path = path.dirname(this_path) + "/Data/obj/p/f" + str(func_num)
+        GA_obj_path = path.dirname(this_path) + "/Data/obj/proposal/f" + str(func_num)
 
         for i in range(trail):
             # CCVIL_groups, CCVIL_cost = Comparison.CCVIl(Dim, func)
@@ -75,7 +75,7 @@ if __name__ == '__main__':
             # G_obj_trace = DE.CC(Dim, NIND, G_Max_iter, func, scale_range, G_groups)
             # write_obj(G_obj_trace, G_obj_path)
             #
-            GA_Max_iter = int((FEs - GA_cost) / NIND / Dim) - 2
+            GA_Max_iter = int((FEs - GA_cost) / NIND / Dim) - 10
             GA_obj_trace = DE.CC(Dim, NIND, GA_Max_iter, func, scale_range, GA_groups)
             write_obj(GA_obj_trace, GA_obj_path)
 
